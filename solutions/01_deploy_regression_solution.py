@@ -15,6 +15,7 @@ import compat_tabpy
 import tabpy_client
 import pandas as pd
 import numpy as np
+import requests
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import LabelEncoder
 
@@ -90,12 +91,23 @@ print(f"\nSanity check — 2026 Final: {test_result[0]:.3f}, 2026 Group: {test_r
 print("\nConnecting to TabPy at http://localhost:9004/ ...")
 connection = tabpy_client.Client('http://localhost:9004/')
 
-connection.deploy(
-    'predict_total_goals',
-    predict_total_goals,
-    'Predicts average total goals for a match given Year and Round type',
-    override=True
-)
+try:
+    connection.deploy(
+        'predict_total_goals',
+        predict_total_goals,
+        'Predicts average total goals for a match given Year and Round type',
+        override=True
+    )
+except RuntimeError as exc:
+    if "Waited more then 10s for deployment" not in str(exc):
+        raise
+
+    status = requests.get('http://localhost:9004/status', timeout=5).json()
+    endpoint_status = status.get('predict_total_goals', {})
+    if endpoint_status.get('status') != 'LoadSuccessful':
+        raise
+
+    print("Deployment timed out waiting for TabPy, but the endpoint loaded successfully.")
 
 print("✅  Model deployed successfully!")
 print("\nNow go to Tableau and create the calculated field:")
