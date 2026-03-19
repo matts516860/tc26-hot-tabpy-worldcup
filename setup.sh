@@ -68,7 +68,7 @@ echo ""
 
 # ── 5. Verify TabPy import ───────────────────────────────────────────────────
 echo "▶ Verifying TabPy installation..."
-python3 -c "import tabpy; print('  tabpy:', tabpy.__version__)" 2>/dev/null || echo "  ⚠️  tabpy version check failed — try importing manually"
+python3 -c "import tabpy; from importlib.metadata import version; print('  tabpy:', version('tabpy'))" 2>/dev/null || echo "  ⚠️  tabpy version check failed — try importing manually"
 python3 -c "import tabpy_client; print('  tabpy-client: OK')" 2>/dev/null || echo "  ⚠️  tabpy_client import failed"
 echo ""
 
