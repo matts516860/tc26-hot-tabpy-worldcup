@@ -67,7 +67,7 @@ def predict_total_goals(years, rounds):
     -------
     list of float — predicted avg goals per match
     """
-    import numpy as np
+    import pandas as pd
 
     known_rounds = list(le.classes_)
     encoded = []
@@ -78,7 +78,10 @@ def predict_total_goals(years, rounds):
             # Unknown round type → default to 0 (graceful degradation)
             encoded.append(0)
 
-    features = np.column_stack([years, encoded])
+    features = pd.DataFrame({
+        'Year': years,
+        'Round_Encoded': encoded,
+    })
     return model.predict(features).tolist()
 
 
