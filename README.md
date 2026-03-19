@@ -28,7 +28,7 @@ Before the session, please ensure you have:
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/<your-org>/tc26-hot-tabpy-worldcup.git
+git clone https://github.com/matts516860/tc26-hot-tabpy-worldcup.git
 cd tc26-hot-tabpy-worldcup
 
 # 2. Install all dependencies
