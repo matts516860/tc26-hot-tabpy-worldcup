@@ -6,6 +6,12 @@ Complete, runnable solution. Run with:
     python solutions/01_deploy_regression_solution.py
 """
 
+from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+import compat_tabpy
 import tabpy_client
 import pandas as pd
 import numpy as np

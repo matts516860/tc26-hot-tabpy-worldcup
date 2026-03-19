@@ -31,14 +31,16 @@ Before the session, please ensure you have:
 git clone https://github.com/matts516860/tc26-hot-tabpy-worldcup.git
 cd tc26-hot-tabpy-worldcup
 
-# 2. Install all dependencies
-pip install -r requirements.txt
+# 2. Install dependencies and apply the TabPy compatibility patch
+bash setup.sh
 
 # 3. Start the TabPy server
 tabpy
 
 # 4. In a NEW terminal, run the scripts (see Session Flow below)
 ```
+
+> Use `bash setup.sh` rather than raw `pip install -r requirements.txt`. The setup script also applies a `tabpy-client` compatibility patch required on newer Python versions.
 
 > TabPy starts on **http://localhost:9004** by default. Confirm it's running by opening that URL in a browser — you should see a JSON status response.
 

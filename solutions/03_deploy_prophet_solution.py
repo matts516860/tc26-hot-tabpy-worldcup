@@ -6,6 +6,12 @@ Complete, runnable solution. Run with:
     python solutions/03_deploy_prophet_solution.py
 """
 
+from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+import compat_tabpy
 from prophet import Prophet
 import pandas as pd
 import tabpy_client

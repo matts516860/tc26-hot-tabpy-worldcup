@@ -24,6 +24,8 @@ ENV/
 
 # TabPy config (may contain auth tokens)
 tabpy_config.cfg
+tabpy_log.log
+tabpy_server.out
 
 # PyMC / ArviZ cache
 .pytensor/

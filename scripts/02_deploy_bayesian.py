@@ -19,6 +19,12 @@ Reference: solutions/02_deploy_bayesian_solution.py
 """
 
 # ── Imports ───────────────────────────────────────────────────────────────────
+from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+import compat_tabpy
 import pymc as pm
 import numpy as np
 import tabpy_client

@@ -49,15 +49,21 @@ echo ""
 
 # ── 3. Upgrade pip ───────────────────────────────────────────────────────────
 echo "▶ Upgrading pip..."
-pip install --upgrade pip -q
+python3 -m pip install --upgrade pip -q
 echo "  ✅ pip up to date"
 echo ""
 
 # ── 4. Install dependencies ──────────────────────────────────────────────────
 echo "▶ Installing dependencies from requirements.txt..."
-pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 echo ""
 echo "  ✅ All packages installed"
+echo ""
+
+# ── 4b. Patch tabpy-client for Python 3.13+ ─────────────────────────────────
+echo "▶ Applying TabPy client compatibility patch..."
+python3 scripts/fix_tabpy_client.py
+echo "  ✅ Compatibility patch applied"
 echo ""
 
 # ── 5. Verify TabPy import ───────────────────────────────────────────────────
