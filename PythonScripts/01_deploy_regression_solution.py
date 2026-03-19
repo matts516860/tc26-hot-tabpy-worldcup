@@ -3,7 +3,7 @@ TC26 HoT: Analytics Extensions & TabPy
 Part 2 — Scikit-learn Regression Model — SOLUTION
 ==================================================
 Complete, runnable solution. Run with:
-    python solutions/01_deploy_regression_solution.py
+    python PythonScripts/01_deploy_regression_solution.py
 """
 
 from pathlib import Path

@@ -62,7 +62,7 @@ echo ""
 
 # ── 4b. Patch tabpy-client for Python 3.13+ ─────────────────────────────────
 echo "▶ Applying TabPy client compatibility patch..."
-python3 scripts/fix_tabpy_client.py
+python3 fix_tabpy_client.py
 echo "  ✅ Compatibility patch applied"
 echo ""
 
@@ -87,7 +87,7 @@ echo "============================================================"
 echo "  ✅ Setup complete!"
 echo ""
 echo "  Next step: start the TabPy server in a NEW terminal:"
-echo "    bash scripts/start_tabpy.sh"
+echo "    bash start_tabpy.sh"
 echo ""
 echo "  Then open Tableau Desktop and connect:"
 echo "    Help → Settings and Performance →"

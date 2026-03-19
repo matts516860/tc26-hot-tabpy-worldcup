@@ -35,9 +35,9 @@ cd tc26-hot-tabpy-worldcup
 bash setup.sh
 
 # 3. Start the TabPy server
-bash scripts/start_tabpy.sh
+bash start_tabpy.sh
 
-# 4. In a NEW terminal, run the scripts (see Session Flow below)
+# 4. In a NEW terminal, run the Python scripts (see Session Flow below)
 ```
 
 > Use `bash setup.sh` rather than raw `pip install -r requirements.txt`. The setup script also applies a `tabpy-client` compatibility patch required on newer Python versions.
@@ -53,16 +53,13 @@ tc26-hot-tabpy-worldcup/
 ├── README.md                          # This file
 ├── requirements.txt                   # All Python dependencies
 ├── setup.sh                           # One-command environment setup
+├── start_tabpy.sh                     # Safe TabPy launcher
+├── fix_tabpy_client.py                # Compatibility patch for modern Python
 │
 ├── data/
 │   └── world_cup_results.xlsx         # Official dataset (3 sheets)
 │
-├── scripts/                           # ← YOU WORK HERE (guided, with TODOs)
-│   ├── 01_deploy_regression.py        # Part 2: scikit-learn goal predictor
-│   ├── 02_deploy_bayesian.py          # Part 4: PyMC Bayesian band chart
-│   └── 03_deploy_prophet.py           # Bonus: Prophet forecast
-│
-├── solutions/                         # ← Full working code (solutions branch)
+├── PythonScripts/                     # All runnable Python examples
 │   ├── 01_deploy_regression_solution.py
 │   ├── 02_deploy_bayesian_solution.py
 │   └── 03_deploy_prophet_solution.py
@@ -73,30 +70,13 @@ tc26-hot-tabpy-worldcup/
 
 ---
 
-## Branch Guide
-
-| Branch | Contents |
-|--------|----------|
-| `main` | Guided starter scripts with TODO markers — **use this during the session** |
-| `solutions` | Fully completed scripts — reference if you get stuck |
-
-```bash
-# Switch to solutions branch
-git checkout solutions
-
-# Switch back to main
-git checkout main
-```
-
----
-
 ## Session Flow
 
 ### Part 1 — Environment Setup *(8 min)*
 
 **Step 1:** Start TabPy
 ```bash
-bash scripts/start_tabpy.sh
+bash start_tabpy.sh
 ```
 Visit `http://localhost:9004` — you should see a JSON response confirming it's running.
 
@@ -112,7 +92,7 @@ If you see `Address already in use`, TabPy is already running on port `9004`. Re
 
 ### Part 2 — Scikit-learn Regression Model *(7 min)*
 
-**Step 3:** Open `scripts/01_deploy_regression.py` in your IDE and follow the TODOs.
+**Step 3:** Open `PythonScripts/01_deploy_regression_solution.py` in your IDE and run it.
 
 You'll train a `LinearRegression` model on historical World Cup data and deploy it to TabPy as `predict_total_goals`.
 
@@ -154,7 +134,7 @@ SCRIPT_REAL(
 
 ### Part 4 — Bayesian Extension: Credible Interval Band Chart *(Bonus)*
 
-**Step 8:** Open `scripts/02_deploy_bayesian.py` and follow the TODOs.
+**Step 8:** Open `PythonScripts/02_deploy_bayesian_solution.py` and run it.
 
 You'll fit a Bayesian linear model using PyMC and deploy three functions:
 - `bayesian_goals_forecast` — posterior mean

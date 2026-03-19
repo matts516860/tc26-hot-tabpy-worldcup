@@ -23,9 +23,9 @@
 
 Do this **before participants arrive**:
 
-- [ ] Clone the repo on your own machine and verify all scripts run end-to-end
+- [ ] Clone the repo on your own machine and verify all Python scripts run end-to-end
 - [ ] Confirm TabPy starts on port 9004 and Tableau connects successfully
-- [ ] Have `solutions/` branch checked out on a separate machine as a reference
+- [ ] Keep the `PythonScripts/` folder open on a separate machine as a reference
 - [ ] Confirm the Wi-Fi at the venue won't block localhost traffic (rare but happens)
 - [ ] Pre-install all packages so any live demos don't wait on pip
 - [ ] Know the PyMC sampling time on your machine so you can set expectations
@@ -45,15 +45,15 @@ Do this **before participants arrive**:
 
 ### Timing Cues
 
-- ⏱ **0:00** — Ask participants to open a terminal and run `tabpy`
+- ⏱ **0:00** — Ask participants to open a terminal and run `bash start_tabpy.sh`
 - ⏱ **1:00** — While TabPy starts, do the Tableau connection steps together
 - ⏱ **3:00** — "Green checkmark? Great. If not, raise your hand — check TROUBLESHOOTING.md"
 - ⏱ **5:00** — Explain what TabPy is (talking points above)
-- ⏱ **8:00** — Transition: "Open scripts/01_deploy_regression.py"
+- ⏱ **8:00** — Transition: "Open PythonScripts/01_deploy_regression_solution.py"
 
 ### Common Issues at This Stage
 
-- **tabpy not found** → `python -m tabpy` as fallback
+- **tabpy not found** → activate `.venv`, then run `bash start_tabpy.sh`
 - **Tableau connection fails** → confirm TabPy terminal shows "Starting TabPy..."
 - **Port 9004 in use** → kill old TabPy process (see TROUBLESHOOTING.md)
 
@@ -74,11 +74,10 @@ Do this **before participants arrive**:
 
 ### Timing Cues
 
-- ⏱ **8:00** — Participants open `scripts/01_deploy_regression.py`
-- ⏱ **9:00** — Read through the TODO blocks together (don't solve them yet)
-- ⏱ **10:00** — "Work through TODO 1 and 2 — build the DataFrame and label encode"
-- ⏱ **11:30** — "Now TODO 3 — fit the model. `model.fit(X, y)` is one line"
-- ⏱ **12:30** — Walk through the predict function structure (the tricky part: imports inside the function)
+- ⏱ **8:00** — Participants open `PythonScripts/01_deploy_regression_solution.py`
+- ⏱ **9:00** — Walk through the training data and label encoding
+- ⏱ **10:30** — Explain the model fit and the prediction function structure
+- ⏱ **12:30** — Highlight the TabPy deployment section and expected output
 - ⏱ **14:30** — "Run the script — you should see 'Model deployed successfully!'"
 - ⏱ **15:00** — Transition to Tableau
 
@@ -167,7 +166,7 @@ print("Model deployed successfully!")
 
 ### Timing Cues (if doing the bonus)
 
-- ⏱ **23:00** — "Open scripts/02_deploy_bayesian.py"
+- ⏱ **23:00** — "Open PythonScripts/02_deploy_bayesian_solution.py"
 - ⏱ **24:00** — Explain the data structure (tournament-level, not match-level)
 - ⏱ **25:30** — Explain PyMC model definition (alpha, beta, sigma, obs)
 - ⏱ **27:00** — Run the script: "This takes ~30-60 sec — talk amongst yourselves"
@@ -194,7 +193,7 @@ print("Model deployed successfully!")
 
 ### Prophet Teaser (if time)
 
-> "Prophet is a drop-in upgrade for time series use cases. `scripts/03_deploy_prophet.py` shows how. The key difference: Prophet gives you `yhat_lower` and `yhat_upper` for free without any Bayesian math on your part. For sales forecasting, pipeline trends, or any business time series — it's usually your first call."
+> "Prophet is a drop-in upgrade for time series use cases. `PythonScripts/03_deploy_prophet_solution.py` shows how. The key difference: Prophet gives you `yhat_lower` and `yhat_upper` for free without any Bayesian math on your part. For sales forecasting, pipeline trends, or any business time series — it's usually your first call."
 
 ### Closing Line
 

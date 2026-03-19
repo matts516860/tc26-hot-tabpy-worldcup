@@ -3,7 +3,7 @@ TC26 HoT: Analytics Extensions & TabPy
 Part 4 — Bayesian Extension: Credible Interval Band Chart — SOLUTION
 =====================================================================
 Complete, runnable solution. Run with:
-    python solutions/02_deploy_bayesian_solution.py
+    python PythonScripts/02_deploy_bayesian_solution.py
 
 Note: MCMC sampling takes ~30–60 seconds. This is normal.
 """

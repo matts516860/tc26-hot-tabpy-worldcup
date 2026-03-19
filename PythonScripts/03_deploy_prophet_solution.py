@@ -3,7 +3,7 @@ TC26 HoT: Analytics Extensions & TabPy
 Bonus — Prophet Forecast — SOLUTION
 =====================================
 Complete, runnable solution. Run with:
-    python solutions/03_deploy_prophet_solution.py
+    python PythonScripts/03_deploy_prophet_solution.py
 """
 
 from pathlib import Path
