@@ -35,7 +35,7 @@ cd tc26-hot-tabpy-worldcup
 bash setup.sh
 
 # 3. Start the TabPy server
-tabpy
+bash scripts/start_tabpy.sh
 
 # 4. In a NEW terminal, run the scripts (see Session Flow below)
 ```
@@ -96,9 +96,11 @@ git checkout main
 
 **Step 1:** Start TabPy
 ```bash
-tabpy
+bash scripts/start_tabpy.sh
 ```
 Visit `http://localhost:9004` — you should see a JSON response confirming it's running.
+
+If you see `Address already in use`, TabPy is already running on port `9004`. Reuse the existing server instead of starting a second one.
 
 **Step 2:** Connect Tableau Desktop to TabPy
 1. **Help → Settings and Performance → Manage Analytics Extension Connection**
