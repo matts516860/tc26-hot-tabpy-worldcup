@@ -87,9 +87,39 @@ SCRIPT_REAL(
 
 ---
 
+## Capstone: 2026 World Cup Prediction
+
+### 7. Predicted 2026 Goals (Live via TabPy)
+
+Connect to `data/2026_match_schedule.xlsx` → `2026_Predictions` sheet. Create this calculated field:
+
+```
+SCRIPT_REAL(
+  "return tabpy.query('predict_2026_goals', _arg1, _arg2)['response']",
+  AVG([Year]),
+  ATTR([Round])
+)
+```
+
+**Purpose:** Calls `predict_2026_goals` — the 2026-aware model that handles the new Round of 32 stage (mapped to Round of 16 as the closest historical analogue).
+**Data type:** Float
+**Requires:** `04_deploy_2026_prediction.py` must have been run successfully.
+
+**Tableau visualization steps:**
+1. Connect to `data/2026_match_schedule.xlsx`, use `2026_Predictions` sheet
+2. Drag `Round` to Columns. Sort manually: Group Stage → Round of 32 → Round of 16 → Quarter-finals → Semi-finals → Final
+3. Drag `Predicted_Avg_Goals` to Rows → bar chart showing goals/match by round
+4. Drag `Predicted_Total_Goals` to Label — shows expected goals per round
+5. Add a Reference Line at **2.27** (2010 — lowest historical average)
+6. For a historical comparison: blend with the `Historical_Actuals` sheet on Year
+
+> **Discussion prompt:** The model predicts ~2.1 goals/match overall — below any World Cup in history. Is that realistic? What feature is the linear model missing? (Hint: 48-team expansion means more mismatched group-stage games, which historically *increases* early-round scoring — the opposite of what the Year coefficient alone predicts.)
+
+---
+
 ## Bonus: Prophet Forecast
 
-### 6. Prophet Forecast
+### 8. Prophet Forecast
 
 ```
 SCRIPT_REAL(

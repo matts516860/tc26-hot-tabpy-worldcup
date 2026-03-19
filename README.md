@@ -42,6 +42,8 @@ bash start_tabpy.sh
 
 > Use `bash setup.sh` rather than raw `pip install -r requirements.txt`. The setup script also applies a `tabpy-client` compatibility patch required on newer Python versions.
 
+> Excel export scripts in `PythonScripts/` use `openpyxl`, which is included in `requirements.txt`.
+
 > TabPy starts on **http://localhost:9004** by default. Confirm it's running by opening that URL in a browser — you should see a JSON status response.
 
 ---

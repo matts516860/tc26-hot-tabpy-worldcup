@@ -82,7 +82,12 @@ echo "▶ Verifying PyMC..."
 python3 -c "import pymc; print('  pymc:', pymc.__version__)" 2>/dev/null || echo "  ⚠️  PyMC import failed — see TROUBLESHOOTING.md"
 echo ""
 
-# ── 8. Done ──────────────────────────────────────────────────────────────────
+# ── 8. Verify Excel export dependency ────────────────────────────────────────
+echo "▶ Verifying Excel export support..."
+python3 -c "import openpyxl; print('  openpyxl:', openpyxl.__version__)" 2>/dev/null || echo "  ⚠️  openpyxl import failed"
+echo ""
+
+# ── 9. Done ──────────────────────────────────────────────────────────────────
 echo "============================================================"
 echo "  ✅ Setup complete!"
 echo ""
