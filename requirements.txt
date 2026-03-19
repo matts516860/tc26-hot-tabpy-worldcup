@@ -2,8 +2,8 @@
 # Install all dependencies with: pip install -r requirements.txt
 
 # TabPy server and client
-tabpy>=0.9.0
-tabpy-client>=0.9.0
+tabpy
+tabpy-client
 
 # Machine learning
 scikit-learn>=1.3.0
